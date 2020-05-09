@@ -1,7 +1,7 @@
 from adapters.requests_adapter import RequestsAdapter
 
 
-class Match:
+class MatchRequester:
 	def __init__(self, requests_adapter: RequestsAdapter):
 		self._requests_adapter = requests_adapter
 
@@ -11,5 +11,6 @@ class Match:
 		return response['json']['matches']
 
 	def get_details(self, match_id: str):
-		return self._requests_adapter.http_get(f'match/v4/matches/{match_id}')
+		response = self._requests_adapter.http_get(f'match/v4/matches/{match_id}')
+		return response['json']
 
