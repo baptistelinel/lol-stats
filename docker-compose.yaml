@@ -1,0 +1,22 @@
+version: "3"
+services:
+  database:
+    container_name: database
+    build:
+      context: "."
+      dockerfile: "docker/Dockerfile.database"
+    volumes:
+      - database:/var/run/postgresql
+  web:
+    restart: on-failure
+    container_name: web
+    build:
+      context: "."
+      dockerfile: "docker/Dockerfile.web"
+    ports:
+      - 5000:5000
+    volumes:
+      - database:/var/run/postgresql
+      - .:/usr/src/app
+volumes:
+  database:
