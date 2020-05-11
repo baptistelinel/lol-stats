@@ -6,12 +6,7 @@ before_install:
   - pip install -r requirements_build.txt
 jobs:
   include:
-    - stage: linter
+    - stage: Tests
       script:
         - "pylint sources/"
-    - stage: unit_tests
-      script:
         - "PYTHONPATH=sources/ pytest tests/unit_tests"
-    - stage: component_tests
-      script:
-        - "PYTHONPATH=sources/ pytest tests/component_tests"
