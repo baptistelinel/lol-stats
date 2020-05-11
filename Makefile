@@ -15,3 +15,6 @@ format:
 
 unit_tests:
 	PYTHONPATH=sources pytest
+
+linter:
+	pylint sources/
