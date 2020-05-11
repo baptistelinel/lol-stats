@@ -14,7 +14,10 @@ format:
 	yapf -i -r sources/ tests/ --style='{based_on_style: pep8, indent_width: 4}'
 
 unit_tests:
-	PYTHONPATH=sources pytest
+	PYTHONPATH=sources pytest tests/unit_tests
+
+component_tests:
+	PYTHONPATH=sources pytest tests/component_tests
 
 linter:
 	pylint sources/
