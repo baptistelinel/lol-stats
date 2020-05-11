@@ -12,3 +12,6 @@ connect_to_database:
 
 format:
 	yapf -i -r sources/ --style='{based_on_style: pep8, indent_width: 4}'
+
+unit_tests:
+	PYTHONPATH=sources pytest
