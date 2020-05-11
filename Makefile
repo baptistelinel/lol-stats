@@ -4,6 +4,9 @@ install_requirements:
 install_requirements_build:
 	pip install -r requirements_build.txt
 
+run_main:
+	PYTHONPATH=sources python sources/main.py
+
 start_app:
 	docker-compose up
 

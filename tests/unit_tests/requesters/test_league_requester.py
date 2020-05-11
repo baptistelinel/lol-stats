@@ -16,7 +16,7 @@ class TestLeagueRequester(unittest.TestCase):
                 'summoner_id': 'summoner_id_123'
             }
         }
-        response = self._league_requester.get_by_id('summoner_id_123')
+        response = self._league_requester.get_by_summoner_id('summoner_id_123')
         self._requests_adapter.http_get.assert_called_once_with(
             f'league/v4/entries/by-summoner/summoner_id_123')
         self.assertEqual(response, {'summoner_id': 'summoner_id_123'})
