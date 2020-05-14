@@ -17,14 +17,14 @@ def home():
     return 'Home'
 
 
-@app.route('/win-rate')
+@app.route('/win-rate/<string:summoner_name>')
 @cache.cached(timeout=50, key_prefix='win-rate')
-def win_rate():
+def win_rate(summoner_name):
     win_rate_business = WinRateBusiness(LeagueRequester(requests_adapter),
                                         MatchRequester(requests_adapter),
                                         SummonerRequester(requests_adapter))
-    general_info = win_rate_business.get_general_info('Lets Coin Flip')
-    win_rate_last_ten_days = win_rate_business.get_from_match_history('Lets Coin Flip')
+    general_info = win_rate_business.get_general_info(summoner_name)
+    win_rate_last_ten_days = win_rate_business.get_from_match_history(summoner_name)
     return {**general_info, **win_rate_last_ten_days}
 
 
