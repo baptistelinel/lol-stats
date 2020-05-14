@@ -1,2 +1,4 @@
 requests
 python-dotenv
+flask
+Flask-Caching==1.8.0
