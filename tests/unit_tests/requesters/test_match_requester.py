@@ -22,7 +22,7 @@ class TestMatchRequester(unittest.TestCase):
         self._requests_adapter.http_get.assert_called_once_with(
             'match/v4/matchlists/by-account/account_id_123',
             payload={
-                'endIndex': 1,
+                'endIndex': 9,
                 'beginIndex': 0,
                 'queue': 420
             })

@@ -6,7 +6,7 @@ class MatchRequester:
         self._requests_adapter = requests_adapter
 
     def get_list(self, account_id: str) -> list:
-        payload = {'endIndex': 1, 'beginIndex': 0, 'queue': 420}
+        payload = {'endIndex': 9, 'beginIndex': 0, 'queue': 420}
         response = self._requests_adapter.http_get(
             f'match/v4/matchlists/by-account/{account_id}', payload=payload)
         return response['json']['matches']
