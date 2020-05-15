@@ -52,10 +52,18 @@ class TestWinRateBusiness(unittest.TestCase):
         self._summoner_requester.get_by_name.assert_called_once_with(
             'Lets Coin Flip')
         self._match_requester.get_list.assert_called_once_with(
-            'account_id_123')
+            'account_id_123', None)
         self._match_requester.get_details.assert_called_once_with(
             'game_id_123')
-        self.assertEqual(response, {'win_rate_last_ten_days': 100.0})
+        self.assertEqual(
+            response, {
+                'win_rate_last_ten_games': {
+                    'wins': 1,
+                    'losses': 0,
+                    'total_games': 1,
+                    'ratio': 100.0
+                }
+            })
 
     def test_get_general_info(self):
         self._summoner_requester.get_by_name.return_value = {

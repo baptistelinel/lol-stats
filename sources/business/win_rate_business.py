@@ -11,11 +11,13 @@ class WinRateBusiness:
         self._match_requester = match_requester
         self._summoner_requester = summoner_requester
 
-    def get_from_match_history(self, summoner_name: str) -> dict:
+    def get_from_match_history(self,
+                               summoner_name: str,
+                               champion_id=None) -> dict:
         win_count = 0
         account_id = self._summoner_requester.get_by_name(
             summoner_name)['accountId']
-        match_list = self._match_requester.get_list(account_id)
+        match_list = self._match_requester.get_list(account_id, champion_id)
         for match in match_list:
             match_details = self._match_requester.get_details(match['gameId'])
             summoner = next((participant_identity for participant_identity in
@@ -28,7 +30,14 @@ class WinRateBusiness:
                  summoner['participantId']), None)
             if summoner_game_detail['stats']['win']:
                 win_count += 1
-        return {'win_rate_last_ten_days': (win_count / len(match_list)) * 100}
+        return {
+            'win_rate_last_ten_games': {
+                'wins': win_count,
+                'losses': len(match_list) - win_count,
+                'total_games': len(match_list),
+                'ratio': (win_count / len(match_list)) * 100
+            }
+        }
 
     def get_general_info(self, summoner_name: str) -> dict:
         summoner_id = self._summoner_requester.get_by_name(summoner_name)['id']
