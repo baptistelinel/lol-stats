@@ -21,7 +21,7 @@ def home():
 
 
 @app.route('/win-rate/<summoner_name>')
-@cache.cached(timeout=50, key_prefix='win_rate')
+@cache.cached(timeout=50)
 def win_rate_general(summoner_name):
     general_info = win_rate_business.get_general_info(summoner_name)
     win_rate_last_ten_games = win_rate_business.get_from_match_history(
@@ -30,7 +30,7 @@ def win_rate_general(summoner_name):
 
 
 @app.route('/win-rate/<summoner_name>/<champion_id>')
-@cache.cached(timeout=50, key_prefix='win_rate_champion')
+@cache.cached(timeout=50)
 def win_rate_champion(summoner_name, champion_id):
     win_rate = win_rate_business.get_from_match_history(summoner_name, champion_id)
     win_rate['win_rate_last_ten_games']['champion_id'] = champion_id
