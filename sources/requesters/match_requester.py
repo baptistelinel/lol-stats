@@ -6,7 +6,7 @@ class MatchRequester:
         self._requests_adapter = requests_adapter
 
     def get_list(self, account_id: str, champion_id=None) -> list:
-        payload = {'endIndex': 9, 'beginIndex': 0, 'queue': 420}
+        payload = {'season': 13, 'endIndex': 10, 'beginIndex': 0, 'queue': 420}
         if champion_id is not None:
             payload = {**payload, 'champion': champion_id}
         response = self._requests_adapter.http_get(

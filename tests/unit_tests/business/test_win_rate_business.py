@@ -38,12 +38,12 @@ class TestWinRateBusiness(unittest.TestCase):
             'participantIdentities': [{
                 'participantId': 1,
                 'player': {
-                    'summonerName': 'Lets Coin Flip',
+                    'accountId': 'account_id_123',
                 }
             }, {
                 'participantId': 2,
                 'player': {
-                    'summonerName': 'Toto',
+                    'accountId': 'account_id_456',
                 }
             }]
         }

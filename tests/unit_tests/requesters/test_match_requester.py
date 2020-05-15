@@ -23,7 +23,8 @@ class TestMatchRequester(unittest.TestCase):
         self._requests_adapter.http_get.assert_called_once_with(
             'match/v4/matchlists/by-account/account_id_123',
             payload={
-                'endIndex': 9,
+                'season': 13,
+                'endIndex': 10,
                 'beginIndex': 0,
                 'queue': 420,
                 'champion': 'champion_id'
@@ -42,7 +43,8 @@ class TestMatchRequester(unittest.TestCase):
         self._requests_adapter.http_get.assert_called_once_with(
             'match/v4/matchlists/by-account/account_id_123',
             payload={
-                'endIndex': 9,
+                'season': 13,
+                'endIndex': 10,
                 'beginIndex': 0,
                 'queue': 420
             })
