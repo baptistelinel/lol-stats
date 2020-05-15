@@ -20,10 +20,11 @@ class WinRateBusiness:
         match_list = self._match_requester.get_list(account_id, champion_id)
         for match in match_list:
             match_details = self._match_requester.get_details(match['gameId'])
-            summoner = next((participant_identity for participant_identity in
-                             match_details['participantIdentities']
-                             if participant_identity['player']['accountId']
-                             == account_id), None)
+            summoner = next(
+                (participant_identity for participant_identity in
+                 match_details['participantIdentities']
+                 if participant_identity['player']['accountId'] == account_id),
+                None)
             summoner_game_detail = next(
                 (participant for participant in match_details['participants']
                  if participant['stats']['participantId'] ==
