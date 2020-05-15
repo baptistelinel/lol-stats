@@ -33,7 +33,7 @@ def win_rate_general(summoner_name):
 @cache.cached(timeout=50)
 def win_rate_champion(summoner_name, champion_id):
     win_rate = win_rate_business.get_from_match_history(summoner_name, champion_id)
-    win_rate['win_rate_last_ten_games']['champion_id'] = champion_id
+    win_rate['win_rate_last_ten_games']['champion_id'] = int(champion_id)
     return win_rate
 
 
