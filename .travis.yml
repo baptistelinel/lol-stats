@@ -4,9 +4,12 @@ python:
 before_install:
   - pip install -r requirements.txt
   - pip install -r requirements_build.txt
+  - pip install codeclimate-test-reporter
 jobs:
   include:
     - stage: Tests
       script:
         - "pylint sources/"
         - "PYTHONPATH=sources/ pytest tests/unit_tests"
+      after_success:
+        - codeclimate-test-reporter
