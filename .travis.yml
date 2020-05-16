@@ -12,4 +12,4 @@ jobs:
         - "pylint sources/"
         - "PYTHONPATH=sources/ pytest tests/unit_tests"
       after_success:
-        - codeclimate-test-reporter
+        - codeclimate-test-reporter --file .coverage
