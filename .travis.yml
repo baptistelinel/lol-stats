@@ -10,6 +10,6 @@ jobs:
     - stage: Tests
       script:
         - "pylint sources/"
-        - "PYTHONPATH=sources/ pytest tests/unit_tests"
+        - "PYTHONPATH=sources pytest --cov-report html --cov=sources tests/unit_tests"
       after_success:
         - codeclimate-test-reporter --file .coverage
