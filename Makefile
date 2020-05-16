@@ -17,7 +17,7 @@ format:
 	yapf -i -r sources/ tests/ --style='{based_on_style: pep8, indent_width: 4}'
 
 unit_tests:
-	PYTHONPATH=sources pytest -s tests/unit_tests
+	PYTHONPATH=sources pytest --cov-report html --cov=sources tests/unit_tests
 
 component_tests:
 	PYTHONPATH=sources pytest -s tests/component_tests
