@@ -63,15 +63,13 @@ class TestWinRateBusiness(unittest.TestCase):
             'game_id_123')
         self.assertEqual(
             response, {
-                'win_rate_last_ten_games': {
-                    'wins': 1,
-                    'kills': 10,
-                    'deaths': 2,
-                    'assists': 15,
-                    'losses': 0,
-                    'total_games': 1,
-                    'ratio': 100.0
-                }
+                'wins': 1,
+                'kills': 10,
+                'deaths': 2,
+                'assists': 15,
+                'losses': 0,
+                'total_games': 1,
+                'ratio': 100.0
             })
 
     def test_get_general_info(self):

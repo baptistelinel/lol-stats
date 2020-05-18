@@ -39,15 +39,13 @@ class WinRateBusiness:
             assists += summoner_game_detail['stats']['assists']
 
         return {
-            'win_rate_last_ten_games': {
-                'kills': kills / len(match_list),
-                'deaths': deaths / len(match_list),
-                'assists': assists / len(match_list),
-                'wins': win_count,
-                'losses': len(match_list) - win_count,
-                'total_games': len(match_list),
-                'ratio': (win_count / len(match_list)) * 100
-            }
+            'kills': kills / len(match_list),
+            'deaths': deaths / len(match_list),
+            'assists': assists / len(match_list),
+            'wins': win_count,
+            'losses': len(match_list) - win_count,
+            'total_games': len(match_list),
+            'ratio': (win_count / len(match_list)) * 100
         }
 
     def get_general_info(self, summoner_name: str) -> dict:
