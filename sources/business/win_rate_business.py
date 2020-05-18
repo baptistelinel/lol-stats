@@ -15,6 +15,9 @@ class WinRateBusiness:
                                summoner_name: str,
                                champion_id=None) -> dict:
         win_count = 0
+        kills = 0
+        deaths = 0
+        assists = 0
         account_id = self._summoner_requester.get_by_name(
             summoner_name)['accountId']
         match_list = self._match_requester.get_list(account_id, champion_id)
@@ -31,8 +34,15 @@ class WinRateBusiness:
                  summoner['participantId']), None)
             if summoner_game_detail['stats']['win']:
                 win_count += 1
+            kills += summoner_game_detail['stats']['kills']
+            deaths += summoner_game_detail['stats']['deaths']
+            assists += summoner_game_detail['stats']['assists']
+
         return {
             'win_rate_last_ten_games': {
+                'kills': kills / len(match_list),
+                'deaths': deaths / len(match_list),
+                'assists': assists / len(match_list),
                 'wins': win_count,
                 'losses': len(match_list) - win_count,
                 'total_games': len(match_list),

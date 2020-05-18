@@ -27,12 +27,18 @@ class TestWinRateBusiness(unittest.TestCase):
             'participants': [{
                 'stats': {
                     'participantId': 1,
-                    'win': True
+                    'win': True,
+                    'kills': 10,
+                    'deaths': 2,
+                    'assists': 15
                 }
             }, {
                 'stats': {
                     'participantId': 2,
-                    'win': False
+                    'win': False,
+                    'kills': 1,
+                    'deaths': 6,
+                    'assists': 7
                 }
             }],
             'participantIdentities': [{
@@ -59,6 +65,9 @@ class TestWinRateBusiness(unittest.TestCase):
             response, {
                 'win_rate_last_ten_games': {
                     'wins': 1,
+                    'kills': 10,
+                    'deaths': 2,
+                    'assists': 15,
                     'losses': 0,
                     'total_games': 1,
                     'ratio': 100.0
