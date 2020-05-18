@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/baptistelinel/lol-stats.svg?branch=master)](https://travis-ci.org/baptistelinel/lol-stats)
 [![Maintainability](https://api.codeclimate.com/v1/badges/436dc7fce112defb6ae9/maintainability)](https://codeclimate.com/github/baptistelinel/lol-stats/maintainability)
-
+[![Test Coverage](https://api.codeclimate.com/v1/badges/436dc7fce112defb6ae9/test_coverage)](https://codeclimate.com/github/baptistelinel/lol-stats/test_coverage)
 ## Description
 
 Warning: this project is not currently in production.
